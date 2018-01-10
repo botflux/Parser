@@ -1,0 +1,6 @@
+E:\vmendele\DMX\Parser\Parser\Parser\bin\Debug\Parser.exe.config
+E:\vmendele\DMX\Parser\Parser\Parser\bin\Debug\Parser.exe
+E:\vmendele\DMX\Parser\Parser\Parser\bin\Debug\Parser.pdb
+E:\vmendele\DMX\Parser\Parser\Parser\obj\Debug\Parser.csprojResolveAssemblyReference.cache
+E:\vmendele\DMX\Parser\Parser\Parser\obj\Debug\Parser.exe
+E:\vmendele\DMX\Parser\Parser\Parser\obj\Debug\Parser.pdb
