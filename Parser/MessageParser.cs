@@ -6,13 +6,27 @@ using System.Threading.Tasks;
 
 namespace Parser
 {
+    /// <summary>
+    /// Outils de création de message
+    /// </summary>
     public static class MessageParser
     {
+        /// <summary>
+        /// Retourne une chaîne de caractères mise en forme avec le nom et la valeur passées en paramètre
+        /// </summary>
+        /// <param name="name">Nom de la variable</param>
+        /// <param name="value">Valeur de la variable</param>
+        /// <returns></returns>
         public static string Parse (string name, string value)
         {
             return string.Format("{0}={1}", name.ToUpper(), value);
         }
 
+        /// <summary>
+        /// Retourne le message découpé dans une instance de la structure ParsedData
+        /// </summary>
+        /// <param name="parsedData">Message formé</param>
+        /// <returns></returns>
         public static ParsedData Decode (string parsedData)
         {
             if (parsedData.Contains("="))
@@ -26,11 +40,17 @@ namespace Parser
             }
         }
 
+        /// <summary>
+        /// Représente une donnée parsée.
+        /// </summary>
         public struct ParsedData
         {
             private string name;
             private string value;
 
+            /// <summary>
+            /// Nom de la donnée
+            /// </summary>
             public string Name
             {
                 get
@@ -44,6 +64,9 @@ namespace Parser
                 }
             }
 
+            /// <summary>
+            /// Valeur de la donnée
+            /// </summary>
             public string Value
             {
                 get
@@ -57,6 +80,11 @@ namespace Parser
                 }
             }
 
+            /// <summary>
+            /// Initialise une nouvelle instance de la structure ParsedData
+            /// </summary>
+            /// <param name="name">Nom de la donnée</param>
+            /// <param name="value">Valeur de la donnée</param>
             public ParsedData (string name, string value)
             {
                 this.name = name;
@@ -71,6 +99,11 @@ namespace Parser
             public override string ToString()
             {
                 return string.Format("Name: {0}; Value: {1}", this.name, this.value);
+            }
+
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
             }
         }
     }
