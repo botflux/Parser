@@ -10,12 +10,6 @@ namespace Parser
     {
         static void Main(string[] args)
         {
-            string parsed = MessageParser.Parse("rouge", "100");
-
-            Console.WriteLine(parsed);
-            
-            MessageParser.ParsedData data = MessageParser.Decode(parsed);
-            Console.WriteLine(data.ToString());
 
             Console.ReadKey();
         }

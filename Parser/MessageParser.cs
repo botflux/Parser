@@ -41,6 +41,24 @@ namespace Parser
         }
 
         /// <summary>
+        /// Renvoie vrai si le message est composé d'un seul égal sinon faux
+        /// </summary>
+        /// <param name="parsedData"></param>
+        /// <returns></returns>
+        private static bool IsValid (string parsedData)
+        {
+            int equalCount = 0;
+
+            foreach (char c in parsedData)
+            {
+                if (c == '=')
+                    equalCount++;
+            }
+
+            return equalCount == 1;
+        }
+
+        /// <summary>
         /// Représente une donnée parsée.
         /// </summary>
         public struct ParsedData
@@ -96,6 +114,10 @@ namespace Parser
                 return base.Equals(obj);
             }
 
+            /// <summary>
+            /// Retourne une chaine de caractère représentant l'instance.
+            /// </summary>
+            /// <returns>Chaine de caractère formatter</returns>
             public override string ToString()
             {
                 return string.Format("Name: {0}; Value: {1}", this.name, this.value);
