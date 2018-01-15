@@ -62,6 +62,19 @@ namespace Parser
             return Parse(data.Name, data.Value);
         }
 
+        public static List<ParseData> DecodeArray (string parsedData)
+        {
+            string[] exploded = parsedData.Split(';');
+            List<ParseData> parseDataArray = new List<ParseData>();
+
+            foreach (string e in exploded)
+            {
+                parseDataArray.Add(Decode(e));
+            }
+
+            return parseDataArray;
+        }
+
         /// <summary>
         /// Retourne le message découpé dans une instance de la structure ParsedData
         /// </summary>

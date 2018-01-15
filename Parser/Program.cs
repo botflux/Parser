@@ -22,6 +22,12 @@ namespace Parser
 
             Console.WriteLine(parsedArray);
 
+            List<ParseData> decoded = DataParser.DecodeArray(parsedArray);
+
+            foreach (var d in decoded)
+            {
+                Console.WriteLine(d.ToString());
+            }
 
             Console.ReadKey();
         }
