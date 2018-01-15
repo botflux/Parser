@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Parser
 {
     /// <summary>
-    /// Outils de création de message
+    /// Outil de création de message
     /// </summary>
-    public static class MessageParser
+    public static class DataParser
     {
         /// <summary>
         /// Retourne une chaîne de caractères mise en forme avec le nom et la valeur passées en paramètre
@@ -20,6 +20,17 @@ namespace Parser
         public static string Parse (string name, string value)
         {
             return string.Format("{0}={1}", name.ToUpper(), value);
+        }
+
+
+        /// <summary>
+        /// Retourne une chaîne de caractères mise en forme
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <returns></returns>
+        public static string Parse(ParsedData data)
+        {
+            return Parse(data.Name, data.Value);
         }
 
         /// <summary>
@@ -39,7 +50,7 @@ namespace Parser
                 throw new Exception("Data not properly formatted !");
             }
         }
-
+        
         /// <summary>
         /// Renvoie vrai si le message est composé d'un seul égal sinon faux
         /// </summary>
@@ -58,75 +69,77 @@ namespace Parser
             return equalCount == 1;
         }
 
+        
+    }
+
+    /// <summary>
+    /// Représente une donnée parsée.
+    /// </summary>
+    public struct ParsedData
+    {
+        private string name;
+        private string value;
+
         /// <summary>
-        /// Représente une donnée parsée.
+        /// Nom de la donnée
         /// </summary>
-        public struct ParsedData
+        public string Name
         {
-            private string name;
-            private string value;
-
-            /// <summary>
-            /// Nom de la donnée
-            /// </summary>
-            public string Name
+            get
             {
-                get
-                {
-                    return this.name;
-                }
-
-                set
-                {
-                    this.name = value;
-                }
+                return this.name;
             }
 
-            /// <summary>
-            /// Valeur de la donnée
-            /// </summary>
-            public string Value
+            set
             {
-                get
-                {
-                    return this.value;
-                }
+                this.name = value;
+            }
+        }
 
-                set
-                {
-                    this.value = value;
-                }
+        /// <summary>
+        /// Valeur de la donnée
+        /// </summary>
+        public string Value
+        {
+            get
+            {
+                return this.value;
             }
 
-            /// <summary>
-            /// Initialise une nouvelle instance de la structure ParsedData
-            /// </summary>
-            /// <param name="name">Nom de la donnée</param>
-            /// <param name="value">Valeur de la donnée</param>
-            public ParsedData (string name, string value)
+            set
             {
-                this.name = name;
                 this.value = value;
             }
+        }
 
-            public override bool Equals(object obj)
-            {
-                return base.Equals(obj);
-            }
+        /// <summary>
+        /// Initialise une nouvelle instance de la structure ParsedData
+        /// </summary>
+        /// <param name="name">Nom de la donnée</param>
+        /// <param name="value">Valeur de la donnée</param>
+        public ParsedData(string name, string value)
+        {
+            this.name = name;
+            this.value = value;
+        }
 
-            /// <summary>
-            /// Retourne une chaine de caractère représentant l'instance.
-            /// </summary>
-            /// <returns>Chaine de caractère formatter</returns>
-            public override string ToString()
-            {
-                return string.Format("Name: {0}; Value: {1}", this.name, this.value);
-            }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
-            public override int GetHashCode()
-            {
-                return base.GetHashCode();
-            }
+        /// <summary>
+        /// Retourne une chaine de caractère représentant l'instance.
+        /// </summary>
+        /// <returns>Chaine de caractère formatter</returns>
+        public override string ToString()
+        {
+            return string.Format("Name: {0}; Value: {1}", this.name, this.value);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

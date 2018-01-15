@@ -10,7 +10,7 @@ namespace Parser
     {
         static void Main(string[] args)
         {
-
+            
             Console.ReadKey();
         }
     }
