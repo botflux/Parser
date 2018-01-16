@@ -47,9 +47,9 @@ namespace Parser
         /// <param name="name">Nom de la variable</param>
         /// <param name="value">Valeur de la variable</param>
         /// <returns></returns>
-        public static string Parse (string name, string value)
+        public static string Parse (string name, object value)
         {
-            return string.Format("{0}={1}", name.ToUpper(), value);
+            return string.Format("{0}={1}", name.ToUpper(), value.ToString());
         }
         
         /// <summary>
@@ -105,7 +105,7 @@ namespace Parser
     public struct ParseData
     {
         private string name;
-        private string value;
+        private object value;
 
         /// <summary>
         /// Nom de la donnée
@@ -126,7 +126,7 @@ namespace Parser
         /// <summary>
         /// Valeur de la donnée
         /// </summary>
-        public string Value
+        public object Value
         {
             get
             {
@@ -144,7 +144,7 @@ namespace Parser
         /// </summary>
         /// <param name="name">Nom de la donnée</param>
         /// <param name="value">Valeur de la donnée</param>
-        public ParseData(string name, string value)
+        public ParseData(string name, object value)
         {
             this.name = name;
             this.value = value;
@@ -161,7 +161,7 @@ namespace Parser
         /// <returns>Chaine de caractère formatter</returns>
         public override string ToString()
         {
-            return string.Format("Name: {0}; Value: {1}", this.name, this.value);
+            return string.Format("Name: {0}; Value: {1}", this.name, this.value.ToString());
         }
         
         public override int GetHashCode()

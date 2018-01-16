@@ -12,7 +12,7 @@ namespace Parser
         {
 
             List<ParseData> array = new List<ParseData>();
-            array.Add(new ParseData("red", "100"));
+            array.Add(new ParseData("red", 100));
             array.Add(new ParseData("bLue", "000"));
             array.Add(new ParseData("GrEeN", "210"));
             array.Add(new ParseData("tiME", "120"));
