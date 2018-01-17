@@ -11,6 +11,43 @@ namespace Parser
     /// </summary>
     public static class FrameParser
     {
+        private static char nameValueSeparator = '=';
+        private static char frameSeparator = ';';
+
+        /// <summary>
+        /// Caractère utilisé pour séparer les valeurs des noms
+        /// </summary>
+        public static char NameValueSeparator
+        {
+            get
+            {
+                return nameValueSeparator;
+            }
+
+            set
+            {
+                nameValueSeparator = value;
+            }
+        }
+
+        /// <summary>
+        /// Caractère utilisé pour séparer les différentes trames
+        /// </summary>
+        public static char FrameSeparator
+        {
+            get
+            {
+                return frameSeparator;
+            }
+
+            set
+            {
+                frameSeparator = value;
+            }
+        }
+
+
+
         /// <summary>
         /// Retourne une chaîne de caractères mise en forme avec tous les élèments de la liste
         /// </summary>
@@ -33,10 +70,10 @@ namespace Parser
             foreach (DataWrapper data in array)
             {
                 string parse = Parse(data);
-                result += parse + ";";
+                result += parse + FrameSeparator;
             }
 
-            result = result.TrimEnd(';');
+            result = result.TrimEnd(FrameSeparator);
 
             return result;
         }
@@ -49,7 +86,7 @@ namespace Parser
         /// <returns></returns>
         public static string Encode (string name, object value)
         {
-            return string.Format("{0}={1}", name.ToUpper(), value.ToString());
+            return string.Format("{0}{1}{2}", name.ToUpper(), NameValueSeparator,value.ToString());
         }
         
         /// <summary>
@@ -69,7 +106,7 @@ namespace Parser
         /// <returns></returns>
         public static List<DataWrapper> DecodeArray (string parsedData)
         {
-            string[] exploded = parsedData.Split(';');
+            string[] exploded = parsedData.Split(FrameSeparator);
             List<DataWrapper> parseDataArray = new List<DataWrapper>();
 
             foreach (string e in exploded)
@@ -87,9 +124,9 @@ namespace Parser
         /// <returns></returns>
         public static DataWrapper Decode (string frame)
         {
-            if (frame.Contains("="))
+            if (frame.Contains(NameValueSeparator))
             {
-                string[] exploded = frame.Split('=');
+                string[] exploded = frame.Split(NameValueSeparator);
                 return new DataWrapper(exploded[0], exploded[1]);
             }
             else
