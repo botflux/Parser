@@ -11,18 +11,18 @@ namespace Parser
         static void Main(string[] args)
         {
 
-            List<ParseData> array = new List<ParseData>();
-            array.Add(new ParseData("red", 100));
-            array.Add(new ParseData("bLue", "000"));
-            array.Add(new ParseData("GrEeN", "210"));
-            array.Add(new ParseData("tiME", "120"));
-            array.Add(new ParseData("message", "Hello world"));
+            List<DataWrapper> array = new List<DataWrapper>();
+            array.Add(new DataWrapper("red", 100));
+            array.Add(new DataWrapper("bLue", "000"));
+            array.Add(new DataWrapper("GrEeN", "210"));
+            array.Add(new DataWrapper("tiME", "120"));
+            array.Add(new DataWrapper("message", "Hello world"));
 
-            string parsedArray = DataParser.Parse(array);
+            string parsedArray = FrameParser.Encode(array);
 
             Console.WriteLine(parsedArray);
 
-            List<ParseData> decoded = DataParser.DecodeArray(parsedArray);
+            List<DataWrapper> decoded = FrameParser.DecodeArray(parsedArray);
 
             foreach (var d in decoded)
             {

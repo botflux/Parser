@@ -9,16 +9,16 @@ namespace Parser
     /// <summary>
     /// Outil de création de message
     /// </summary>
-    public static class DataParser
+    public static class FrameParser
     {
         /// <summary>
         /// Retourne une chaîne de caractères mise en forme avec tous les élèments de la liste
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string Parse (List<ParseData> list)
+        public static string Encode (List<DataWrapper> list)
         {
-            return Parse(list.ToArray());
+            return Encode(list.ToArray());
         }
 
         /// <summary>
@@ -26,11 +26,11 @@ namespace Parser
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        public static string Parse (ParseData[] array)
+        public static string Encode (DataWrapper[] array)
         {
             string result = "";
 
-            foreach (ParseData data in array)
+            foreach (DataWrapper data in array)
             {
                 string parse = Parse(data);
                 result += parse + ";";
@@ -47,7 +47,7 @@ namespace Parser
         /// <param name="name">Nom de la variable</param>
         /// <param name="value">Valeur de la variable</param>
         /// <returns></returns>
-        public static string Parse (string name, object value)
+        public static string Encode (string name, object value)
         {
             return string.Format("{0}={1}", name.ToUpper(), value.ToString());
         }
@@ -57,9 +57,9 @@ namespace Parser
         /// </summary>
         /// <param name="data">Data</param>
         /// <returns></returns>
-        public static string Parse(ParseData data)
+        public static string Parse(DataWrapper data)
         {
-            return Parse(data.Name, data.Value);
+            return Encode(data.Name, data.Value);
         }
 
         /// <summary>
@@ -67,10 +67,10 @@ namespace Parser
         /// </summary>
         /// <param name="parsedData"></param>
         /// <returns></returns>
-        public static List<ParseData> DecodeArray (string parsedData)
+        public static List<DataWrapper> DecodeArray (string parsedData)
         {
             string[] exploded = parsedData.Split(';');
-            List<ParseData> parseDataArray = new List<ParseData>();
+            List<DataWrapper> parseDataArray = new List<DataWrapper>();
 
             foreach (string e in exploded)
             {
@@ -83,14 +83,14 @@ namespace Parser
         /// <summary>
         /// Retourne le message découpé dans une instance de la structure ParseData
         /// </summary>
-        /// <param name="parsedData">Message formé</param>
+        /// <param name="frame">Message formé</param>
         /// <returns></returns>
-        public static ParseData Decode (string parsedData)
+        public static DataWrapper Decode (string frame)
         {
-            if (parsedData.Contains("="))
+            if (frame.Contains("="))
             {
-                string[] exploded = parsedData.Split('=');
-                return new ParseData(exploded[0], exploded[1]);
+                string[] exploded = frame.Split('=');
+                return new DataWrapper(exploded[0], exploded[1]);
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Parser
     /// <summary>
     /// Représente une donnée parsée.
     /// </summary>
-    public struct ParseData
+    public struct DataWrapper
     {
         private string name;
         private object value;
@@ -144,7 +144,7 @@ namespace Parser
         /// </summary>
         /// <param name="name">Nom de la donnée</param>
         /// <param name="value">Valeur de la donnée</param>
-        public ParseData(string name, object value)
+        public DataWrapper(string name, object value)
         {
             this.name = name;
             this.value = value;
