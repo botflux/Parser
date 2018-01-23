@@ -69,7 +69,7 @@ namespace Parser
 
             foreach (DataWrapper data in array)
             {
-                string parse = Parse(data);
+                string parse = Encode(data);
                 result += parse + FrameSeparator;
             }
 
@@ -94,7 +94,7 @@ namespace Parser
         /// </summary>
         /// <param name="data">Data</param>
         /// <returns></returns>
-        public static string Parse(DataWrapper data)
+        public static string Encode(DataWrapper data)
         {
             return Encode(data.Name, data.Value);
         }
