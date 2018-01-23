@@ -46,8 +46,6 @@ namespace Parser
             }
         }
 
-
-
         /// <summary>
         /// Retourne une chaîne de caractères mise en forme avec tous les élèments de la liste
         /// </summary>
