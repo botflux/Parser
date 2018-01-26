@@ -10,7 +10,7 @@ namespace Parser
     {
         static void Main(string[] args)
         {
-
+            
             List<DataWrapper> array = new List<DataWrapper>();
             array.Add(new DataWrapper("red", 100));
             array.Add(new DataWrapper("bLue", "000"));
@@ -28,7 +28,7 @@ namespace Parser
             {
                 Console.WriteLine(d.ToString());
             }
-
+            
             Console.ReadKey();
         }
     }
