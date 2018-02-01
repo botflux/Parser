@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{A1E95F86-3467-482E-915F-DE9A49C1FCF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserLibrairy", "ParserLibrairy\ParserLibrairy.csproj", "{7F3EA5C5-8111-460F-B1D5-15FF51912F16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserLibrary", "ParserLibrairy\ParserLibrary.csproj", "{7F3EA5C5-8111-460F-B1D5-15FF51912F16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
