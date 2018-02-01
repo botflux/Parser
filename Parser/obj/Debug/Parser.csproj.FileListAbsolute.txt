@@ -18,3 +18,5 @@ C:\Users\Victor\Documents\Visual Studio 2015\Projects\Parser\Parser\bin\Debug\Pa
 C:\Users\Victor\Documents\Visual Studio 2015\Projects\Parser\Parser\obj\Debug\Parser.csprojResolveAssemblyReference.cache
 E:\vmendele\DMX\Parser\Parser\bin\Debug\ParserLibrairy.dll
 E:\vmendele\DMX\Parser\Parser\bin\Debug\ParserLibrairy.pdb
+C:\Users\Victor\Documents\Visual Studio 2015\Projects\Parser\Parser\bin\Debug\ParserLibrairy.dll
+C:\Users\Victor\Documents\Visual Studio 2015\Projects\Parser\Parser\bin\Debug\ParserLibrairy.pdb

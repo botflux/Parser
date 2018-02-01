@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VPackage.Parser;
 
 namespace Parser
 {
@@ -10,7 +11,6 @@ namespace Parser
     {
         static void Main(string[] args)
         {
-            
             List<DataWrapper> array = new List<DataWrapper>();
             array.Add(new DataWrapper("red", 100));
             array.Add(new DataWrapper("bLue", "000"));
