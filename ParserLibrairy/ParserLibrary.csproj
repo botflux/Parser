@@ -7,7 +7,7 @@
     <ProjectGuid>{7F3EA5C5-8111-460F-B1D5-15FF51912F16}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParserLibrary</RootNamespace>
+    <RootNamespace>VPackage.Parser</RootNamespace>
     <AssemblyName>ParserLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
