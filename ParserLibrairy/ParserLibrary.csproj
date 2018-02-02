@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DataParser.cs" />
     <Compile Include="DataWrapper.cs" />
+    <Compile Include="IParsable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
