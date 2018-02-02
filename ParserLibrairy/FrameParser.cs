@@ -134,6 +134,11 @@ namespace VPackage
                     throw new Exception("Data not properly formatted !");
                 }
             }
+
+            public static string Merge (string s0, string s1)
+            {
+                return string.Format("{0};{1}", s0, s1);
+            }
         }
     }
 
