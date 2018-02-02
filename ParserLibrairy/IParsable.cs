@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VPackage.Parser
 {
-    interface IParsable <T> where T : class
+    public interface IParsable <T> where T : class
     {
         string Encode();
     }
