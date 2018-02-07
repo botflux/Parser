@@ -82,7 +82,12 @@ namespace VPackage.Parser
         /// <returns></returns>
         public static string Encode(string name, object value)
         {
-            return string.Format("{0}{1}{2}", name.ToUpper(), NameValueSeparator, value.ToString());
+            string strValue = value.ToString();
+
+            if (strValue.Contains(FrameSeparator) || strValue.Contains(NameValueSeparator) || name.Contains(FrameSeparator) || name.Contains(NameValueSeparator))
+                throw new ValueContentException();
+
+            return string.Format("{0}{1}{2}", name.ToUpper(), NameValueSeparator, strValue);
         }
 
         /// <summary>
@@ -127,7 +132,7 @@ namespace VPackage.Parser
             }
             else
             {
-                throw new Exception("Data not properly formatted !");
+                throw new WrongFormatException();
             }
         }
             

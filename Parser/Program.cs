@@ -11,25 +11,14 @@ namespace Parser
     {
         static void Main(string[] args)
         {
-            List<DataWrapper> array = new List<DataWrapper>();
-            array.Add(new DataWrapper("red", 100));
-            array.Add(new DataWrapper("bLue", "000"));
-            array.Add(new DataWrapper("GrEeN", "210"));
-            array.Add(new DataWrapper("tiME", "120"));
-            array.Add(new DataWrapper("message", "Hello world"));
-
-            string parsedArray = FrameParser.Encode(array);
-
-            Console.WriteLine(parsedArray);
-
-            List<DataWrapper> decoded = FrameParser.DecodeArray(parsedArray);
-
-            foreach (var d in decoded)
+            while (true)
             {
-                Console.WriteLine(d.ToString());
+                Console.WriteLine("Enter un nom:");
+                string nom = Console.ReadLine();
+                Console.WriteLine("Entrer une valeur:");
+                string v = Console.ReadLine();
+                Console.WriteLine("Résultat: {0}", FrameParser.Encode(nom, v));
             }
-            
-            Console.ReadKey();
         }
     }
 }

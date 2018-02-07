@@ -44,6 +44,8 @@
     <Compile Include="DataWrapper.cs" />
     <Compile Include="IParsable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueContentException.cs" />
+    <Compile Include="WrongFormatException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
