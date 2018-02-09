@@ -144,7 +144,7 @@ namespace VPackage.Parser
         /// <returns></returns>
         public static string Merge (string s0, string s1)
         {
-            return string.Format("{0};{1}", s0, s1);
+            return string.Format("{0}{1}{2}", s0, FrameSeparator,s1);
         }
     }
 }
